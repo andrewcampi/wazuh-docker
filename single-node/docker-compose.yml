@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   wazuh.manager:
-    image: wazuh/wazuh-manager:5.0.0
+    image: wazuh/wazuh-manager:4.7.3
     hostname: wazuh.manager
     restart: always
     ulimits:
