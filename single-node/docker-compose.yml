@@ -44,6 +44,13 @@ services:
       - ./config/wazuh_indexer_ssl_certs/wazuh.manager.pem:/etc/ssl/filebeat.pem
       - ./config/wazuh_indexer_ssl_certs/wazuh.manager-key.pem:/etc/ssl/wazuh-manager-key/filebeat.key
       - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        mkdir -p /etc/ssl/wazuh-manager-key
+        chmod 700 /etc/ssl/wazuh-manager-key
+        /entrypoint.sh
 
   wazuh.indexer:
     image: wazuh/wazuh-indexer:4.7.3
